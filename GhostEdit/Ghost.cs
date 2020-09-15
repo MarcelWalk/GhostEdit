@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GhostEdit
 {
-    class Ghost
+    public class Ghost
     {
 
         public string TokenId { get; set; }
@@ -17,7 +17,7 @@ namespace GhostEdit
 
         public Ghost(string adminToken)
         {
-            string tokenStr = "5f5e8c5f9a3f6219000f7528:4d8b084e3269cb06b6570608522c48471c21822eda298e8044b38da0e8955db3";
+            string tokenStr = adminToken;
 
             TokenId = tokenStr.Split(":")[0];
             TokenSecret = tokenStr.Split(":")[1];
@@ -40,13 +40,15 @@ namespace GhostEdit
             AuthToken = Jose.JWT.Encode(payload, secretKey, JwsAlgorithm.HS256, extraHead);
         }
 
-        public bool CreatePostFromHtml(string htmlText)
+        public bool CreatePost(GhostData data)
         {
             HttpClient clientTest = new HttpClient();
 
-            HttpRequestMessage httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://nyasaki.dev/ghost/api/v3/admin/posts/");
+            HttpRequestMessage httpRequest = new HttpRequestMessage(HttpMethod.Post, "https://nyasaki.dev/ghost/api/v3/admin/posts/?source=html"); //with ?source=html mobiledoc is not neccessary
 
-            httpRequest.Content = new StringContent(htmlText, Encoding.UTF8, "application/json");
+            var serializedJson = Serialize.ToJson(data);
+
+            httpRequest.Content = new StringContent(serializedJson, Encoding.UTF8, "application/json");
             httpRequest.Headers.Authorization = new AuthenticationHeaderValue("Ghost", AuthToken);
 
             var response = clientTest.SendAsync(httpRequest).Result;

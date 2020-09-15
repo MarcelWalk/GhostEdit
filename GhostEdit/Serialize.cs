@@ -7,6 +7,6 @@ namespace GhostEdit
 {
     public static class Serialize
     {
-        public static string ToJson(this GhostData self) => JsonConvert.SerializeObject(self, Converter.Settings);
+        public static string ToJson(this GhostData self) => JsonConvert.SerializeObject(self);
     }
 }

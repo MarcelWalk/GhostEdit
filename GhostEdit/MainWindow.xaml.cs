@@ -10,27 +10,21 @@ namespace GhostEdit
         public MainWindow()
         {
             InitializeComponent();
-            UpdateSkin(SkinType.Dark);
-        }
-        internal void UpdateSkin(SkinType skin)
-        {
-            Resources.MergedDictionaries.Clear();
-            Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin.ToString()}.xaml")
-            });
-            Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-            });
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            switch (((MenuItem)sender).Header)
+            switch (((Button)sender).Content.ToString().ToLower())
             {
+                case "new":
+                    break;
+                case "open":
+                    break;
+                case "save":
+                    break;
+                case "publish":
+                    break;
                 default:
-                    Console.WriteLine(((MenuItem)sender).Header + " clicked!");
                     break;
             }
         }

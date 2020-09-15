@@ -39,37 +39,28 @@
             </TabItem>
             <TabItem Header="Settings" Background="#333">
                 <Grid Background="#333">
-                    <!--<Menu Height="29" VerticalAlignment="Top">
-                        <MenuItem Header="File">
-                            <MenuItem Header="New"></MenuItem>
-                            <MenuItem Header="Open"></MenuItem>
-                            <MenuItem Header="Save"></MenuItem>
-                            <MenuItem Header=""></MenuItem>
-                            <MenuItem Header="Post"></MenuItem>
-                        </MenuItem>
-                        <MenuItem Header="Font"/> 
-                    </Menu>
-                    -->
                     <ScrollViewer>
                         <StackPanel>
                             <Expander Header="Main">
                                 <Grid>
-                                    <TextBox Text="Meta Title" TextWrapping="Wrap" Margin="10,10,10,0" Height="30" VerticalAlignment="Top"/>
-                                    <TextBox Text="Meta Description" TextWrapping="Wrap" Margin="10,45,10,10" Height="120" VerticalAlignment="Top"/>
+                                    <Button Content="New" HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Top" Click="Button_Click"/>
+                                    <Button Content="Open" HorizontalAlignment="Right" Margin="0,0,127,0" Click="Button_Click"/>
+                                    <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,75,0" Click="Button_Click"/>
+                                    <Button Content="Publish" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Button_Click"/>
                                 </Grid>
                             </Expander>
                             <Expander Header="Basic Post">
                                 <Grid>
-                                    <TextBox Text="Slug" TextWrapping="Wrap" Margin="456,45,10,0" Panel.ZIndex="1" Height="30" VerticalAlignment="Top"/>
-                                    <TextBox Text="Title" TextWrapping="Wrap" Margin="10,10,554,0" Height="30" VerticalAlignment="Top"/>
-                                    <TextBox Text="Image URL" TextWrapping="Wrap" Margin="456,10,10,0" Height="30" VerticalAlignment="Top"/>
-                                    <ComboBox Margin="456,80,10,0" Height="30" VerticalAlignment="Top">
+                                    <TextBox Name="txtSlug" Text="Slug" TextWrapping="Wrap" Margin="456,45,10,0" Panel.ZIndex="1" Height="30" VerticalAlignment="Top"/>
+                                    <TextBox Name="txtTitle" Text="Title" TextWrapping="Wrap" Margin="10,10,554,0" Height="30" VerticalAlignment="Top"/>
+                                    <TextBox Name="txtImageUrl" Text="Image URL" TextWrapping="Wrap" Margin="456,10,10,0" Height="30" VerticalAlignment="Top"/>
+                                    <ComboBox Name="cmbState" Margin="456,80,10,0" Height="30" VerticalAlignment="Top">
                                         <System:String>Published</System:String>
                                         <System:String>Draft</System:String>
                                     </ComboBox>
-                                    <TextBox Text="Excerpt" TextWrapping="Wrap" Margin="10,45,349,0" Height="102" VerticalAlignment="Top"/>
-                                    <TextBox Text="Tags" TextWrapping="Wrap" Margin="10,152,349,10" Height="30" VerticalAlignment="Top"/>
-                                    <TextBox Text="Author Email" TextWrapping="Wrap" Margin="251,10,349,0" Height="30" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtExcerpt" Text="Excerpt" TextWrapping="Wrap" Margin="10,45,349,0" Height="102" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtTags" Text="Tags" TextWrapping="Wrap" Margin="10,152,349,10" Height="30" VerticalAlignment="Top"/>
+                                    <TextBox Name="txtAuthorEmail" Text="Author Email" TextWrapping="Wrap" Margin="251,10,349,0" Height="30" VerticalAlignment="Top"/>
                                 </Grid>
                             </Expander>
                             <Expander Header="Sharing">
@@ -78,16 +69,16 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBox Text="Facebook Title" TextWrapping="Wrap" Margin="10,10,10,0" Panel.ZIndex="1" Height="30" VerticalAlignment="Top"/>
-                                    <TextBox Text="Facebook Description" TextWrapping="Wrap" Margin="10,45,10,10" Panel.ZIndex="1" Height="100" VerticalAlignment="Top"/>
-                                    <TextBox Text="Twitter Title" TextWrapping="Wrap" Margin="10,10,10,0" Panel.ZIndex="1" Height="30" VerticalAlignment="Top" Grid.Column="1"/>
-                                    <TextBox Text="Twitter Description" TextWrapping="Wrap" Margin="10,45,10,0" Panel.ZIndex="1" Height="100" VerticalAlignment="Top" Grid.Column="1"/>
+                                    <TextBox Name="txtFbTitle" Text="Facebook Title" TextWrapping="Wrap" Margin="10,10,10,0" Panel.ZIndex="1" Height="30" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtFbDescription" Text="Facebook Description" TextWrapping="Wrap" Margin="10,45,10,10" Panel.ZIndex="1" Height="100" VerticalAlignment="Top"/>
+                                    <TextBox Name="txtTwTitle" Text="Twitter Title" TextWrapping="Wrap" Margin="10,10,10,0" Panel.ZIndex="1" Height="30" VerticalAlignment="Top" Grid.Column="1"/>
+                                    <TextBox Name="txtTwDescription" Text="Twitter Description" TextWrapping="Wrap" Margin="10,45,10,0" Panel.ZIndex="1" Height="100" VerticalAlignment="Top" Grid.Column="1"/>
                                 </Grid>
                             </Expander>
                             <Expander Header="Meta">
                                 <Grid >
-                                    <TextBox Text="Meta Title" TextWrapping="Wrap" Margin="10,10,10,0" Height="30" VerticalAlignment="Top"/>
-                                    <TextBox Text="Meta Description" TextWrapping="Wrap" Margin="10,45,10,10" Height="100" VerticalAlignment="Top"/>
+                                    <TextBox Name="txtMetaTitle" Text="Meta Title" TextWrapping="Wrap" Margin="10,10,10,0" Height="30" VerticalAlignment="Top"/>
+                                    <TextBox Name="txtMetaDescription" Text="Meta Description" TextWrapping="Wrap" Margin="10,45,10,10" Height="100" VerticalAlignment="Top"/>
                                 </Grid>
                             </Expander>
                         </StackPanel>
